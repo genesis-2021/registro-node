@@ -1,0 +1,27 @@
+<%- include('parcials/header') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/edit/<%= task._id %>" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="nombre" placeholder="ingrese nombre"
+                            class="form-control" value="<%= task.nombre %>">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="monto" placeholder="ingrese monto"
+                            class="form-control" value="<%= task.monto %>">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">MODIFICAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('parcials/footer') -%>

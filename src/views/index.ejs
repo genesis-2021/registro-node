@@ -1,0 +1,51 @@
+<%- include('parcials/header'); -%>
+
+    <div class="container">
+        <div class="row">
+            <!--form-->
+            <div class="col-md-5 offset-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="mb-3">
+                                <input type="text" name="nombre" placeholder="ingrese nombre"
+                                class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="monto" placeholder="ingrese monto"
+                                class="form-control">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit">REGISTRAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!--lista-->
+            <div class="col-md-7 offset-md-2">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr class="table-dark">
+                            <th>NOMBRE</th>
+                            <th>MONTO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                        <% for(var i=0; i<tasks.length; i++){ %>
+                            <tr>
+                                <td><%= tasks[i].nombre %></td>
+                                <td><%= tasks[i].monto %></td>
+                                <td>
+                                    <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">editar</a>
+                                    <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">eliminar</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include('parcials/footer'); -%>
